@@ -32,7 +32,7 @@
             <td><?php echo '<img src="assets/img/'.$array_barang["produk"].'" width="150px" height="150px">'; ?></td>
             <td><?php echo $array_barang["kategori"]; ?></td>
             <td><?php echo $array_barang["merk"]; ?></td>
-            <td><?php echo $array_barang["type"]; ?></td>
+            <td><?php echo $array_barang["tipe"]; ?></td>
             <td><?php echo"Rp ".$array_barang["harga"].",-"; ?></td>
         </tr>
         <?php } ?>
