@@ -1,0 +1,31 @@
+body {
+    font-family : Verdana, Tahoma, sans-serif;
+
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.keterangan {
+    width: 700px;
+    height: auto;
+}
+
+.harga {
+    font-size: 24px;
+    color: orangered;
+    font-weight: bolder;
+}
+.list {
+    font-weight: bold;
+    color: gray;
+}
+
+.gambar, .keterangan {
+    float: left;
+    margin-top: 100px;
+    margin-left: 50px;
+}
