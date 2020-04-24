@@ -2,7 +2,16 @@
 
 require 'functions.php';
 
-$elektronik = query("SELECT * FROM elektronik");
+
+if(isset($_GET['cari'])) {
+    $keyword = $_GET['keyword'];
+    $elektronik = query("SELECT * FROM ELEKTRONIK WHERE
+                            merk LIKE '%$keyword%' OR
+                            tipe LIKE '%$keyword%' OR
+                            kategori LIKE '%$keyword' ");
+} else {
+    $elektronik = query("SELECT * FROM elektronik");
+}
 
 ?>
 
@@ -15,7 +24,20 @@ $elektronik = query("SELECT * FROM elektronik");
 </head>
 <body>
     <a href="tambah.php"><button>Tambah data</button></a>
+
+    <form action="" method="get">
+        <input type="text" name="keyword" autofocus>
+        <button type="submit" name="cari">Search</button>
+    </form>
+
     <table border="1" cellpadding="13" cellspacing="0">
+    <?php if(empty($elektronik)) : ?>
+        <tr>
+            <td colspan="7">
+                <h1>Data tidak ditemukan</h1>
+            </td>
+        </tr>
+        <?php else : ?>
         <tr>
             <th>#</th>
             <th>Opsi</th>
@@ -25,7 +47,6 @@ $elektronik = query("SELECT * FROM elektronik");
             <th>Tipe</th>
             <th>Harga</th>
         </tr>
-        <?php $i = 1; ?>
         <?php foreach($elektronik as $uye) : ?>
             <tr>
                 <td><?= $uye['no']; ?></td>
@@ -40,6 +61,7 @@ $elektronik = query("SELECT * FROM elektronik");
                 <td><?= $uye['harga']; ?></td>
             </tr>
         <?php endforeach; ?>
+        <?php endif; ?>
     </table>
 </body>
 </html>

@@ -2,14 +2,7 @@
 
 require 'php/functions.php';
 
-
-if(isset($_GET['cari'])) {
-    $keyword = $_GET['keyword'];
-    $elektronik = query("SELECT * FROM ELEKTRONIK WHERE
-                            tipe LIKE '%$keyword%' ");
-} else {
-    $elektronik = query("SELECT * FROM elektronik");
-}
+$elektronik = query("SELECT * FROM elektronik");
 
 ?>
 
@@ -22,20 +15,6 @@ if(isset($_GET['cari'])) {
 </head>
 <body>
    <div class="container">
-    
-    <form action="" method="get">
-        <input type="text" name="keyword" autofocus placeholder="cari barang disini..">
-        <button type="submit" name="cari">Search</button>
-    </form>
-
-
-    <?php if(empty($elektronik)) : ?>
-        <tr>
-            <td colspan="7">
-                <h1>Data tidak ditemukan</h1>
-            </td>
-        </tr>
-    <?php else : ?>
     <?php foreach ($elektronik as $barang) : ?>
         <p class="nama">
             <a href="php/detail.php/?tipe=<?= $barang['tipe'] ?>">
@@ -45,6 +24,5 @@ if(isset($_GET['cari'])) {
     <?php endforeach; ?>
    </div>
     </table>
-    <?php endif; ?>
 </body>
 </html>
