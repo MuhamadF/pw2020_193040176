@@ -25,7 +25,7 @@ $m = query("SELECT * FROM mahasiswa WHERE id = $id");
     <li><?= $m['email']; ?></li>
     <li><?= $m['jurusan']; ?></li>
     <li><a href="ubah.php?id=<?= $m['id']; ?>">ubah</a> | <a href="hapus.php?id=<?= $m['id']; ?> " onclick="return confirm('Hapus Data ?')">hapus</a></li>
-    <li><a href="latihan3.php">Kembali ke daftar mahasiswa</a></li>
+    <li><a href="index.php">Kembali ke daftar mahasiswa</a></li>
 
   </ul>
 </body>
