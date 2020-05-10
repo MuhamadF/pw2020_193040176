@@ -1,0 +1,27 @@
+.navbar {
+    height: 70px;
+}
+
+a {
+    font-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+.harga{
+    color: orange;
+}
+
+
+/* responsive */
+ @media (min-width: 768px) {
+
+.form-search {
+    margin-left: 100px;
+}
+.input-search {
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+}
